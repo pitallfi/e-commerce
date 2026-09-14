@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras - Beco Diagonal</title>
+    <!-- Vincula o CSS exclusivo da página de carrinho -->
+    <link rel="stylesheet" href="./css/style-carrinho.css">
+</head>
+<body>
+
+    <main class="cart-container">
+        <!-- Título da Página -->
+        <h1 class="page-title">Meu Carrinho de Compras</h1>
+
+        <!-- Layout Principal com Flexbox: Esquerda (Itens + Endereço) | Direita (Resumo) -->
+        <div class="cart-content">
+            
+            <!-- Coluna da Esquerda: Lista de Produtos e Endereço -->
+            <div class="cart-left">
+                
+                <!-- Lista de Produtos -->
+                <div class="products-list">
+                    
+                    <!-- Produto 1 -->
+                    <div class="cart-item">
+                        <div class="item-info">
+                            <img src="./img/produto-01.jpg" alt="Gnomo Mágico da Floresta">
+                            <p class="item-description">Gnomo Guardião da Floresta Mágica com Cogumelo Brilhante</p>
+                        </div>
+                        <div class="item-quantity">
+                            <label for="qtd-1">Quantidade</label>
+                            <input type="number" id="qtd-1" value="1" min="1">
+                        </div>
+                        <div class="item-price">
+                            <span class="price-label">Preço</span>
+                            <span class="price-value">R$ 89,90</span>
+                        </div>
+                    </div>
+
+                    <!-- Produto 2 -->
+                    <div class="cart-item">
+                        <div class="item-info">
+                            <img src="./img/produto-02.jpg" alt="Guerreiro da Floresta">
+                            <p class="item-description">Ent Protetor da Natureza Encantada das Colinas</p>
+                        </div>
+                        <div class="item-quantity">
+                            <label for="qtd-2">Quantidade</label>
+                            <input type="number" id="qtd-2" value="1" min="1">
+                        </div>
+                        <div class="item-price">
+                            <span class="price-label">Preço</span>
+                            <span class="price-value">R$ 120,00</span>
+                        </div>
+                    </div>
+
+                    <!-- Produto 3 -->
+                    <div class="cart-item">
+                        <div class="item-info">
+                            <img src="./img/produto-03.jpg" alt="Festival da Floresta">
+                            <p class="item-description">Quadro Ilustrativo - Celebração Mágica dos Gnomos</p>
+                        </div>
+                        <div class="item-quantity">
+                            <label for="qtd-3">Quantidade</label>
+                            <input type="number" id="qtd-3" value="1" min="1">
+                        </div>
+                        <div class="item-price">
+                            <span class="price-label">Preço</span>
+                            <span class="price-value">R$ 150,00</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Seção de Endereço de Entrega -->
+                <div class="delivery-address">
+                    <h3>Entregar em:</h3>
+                    <p class="address-line">Mountain View 1600</p>
+                    <p class="address-line">Amphitheatre Parkway Mountain View, CA 94043 United States</p>
+                </div>
+
+                <!-- Botão para Retornar à Loja Principal -->
+                <div class="back-button-container">
+                    <a href="index.html" class="btn-back">Retornar à Lista de Produtos</a>
+                </div>
+
+            </div>
+
+            <!-- Coluna da Direita: Resumo do Pedido -->
+            <div class="cart-right">
+                <div class="order-summary-card">
+                    <h2>Resumo do Pedido</h2>
+                    
+                    <div class="summary-total">
+                        <p class="total-label">Total (3 produtos):</p>
+                        <p class="total-price">R$ 359,90</p>
+                    </div>
+
+                    <div class="installment-info">
+                        <p>Em até 10x s/ juros</p>
+                        <p class="installment-highlight">10x de R$ 35,99</p>
+                    </div>
+		    <a href="parabens-compra.html">		
+                    <button type="button" class="btn-checkout">Finalizar compra</button>
+		    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

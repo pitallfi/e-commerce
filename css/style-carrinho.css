@@ -1,0 +1,315 @@
+/* Reset básico e renderização suave de fontes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    
+    /* Gradiente em tom marrom café mais escuro e encorpado */
+    background: linear-gradient(180deg, #2b1a11 0%, #1f120a 50%, #140b06 100%);
+    background-attachment: fixed;
+    color: #f1e7dd;
+    min-height: 100vh;
+    padding: 40px 20px;
+    letter-spacing: 0.2px;
+}
+
+/* Container Principal */
+.cart-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Título da Página */
+.page-title {
+    font-size: 2.1rem;
+    font-weight: 500;
+    color: #f7ede2;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(212, 163, 89, 0.3);
+    padding-bottom: 12px;
+}
+
+/* Flexbox das Duas Colunas */
+.cart-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Coluna Esquerda */
+.cart-left {
+    flex: 1 1 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Lista de Produtos */
+.products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Item Individual do Carrinho */
+.cart-item {
+    background-color: rgba(43, 26, 17, 0.85);
+    border: 1px solid rgba(212, 163, 89, 0.3);
+    border-radius: 12px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+}
+
+/* Agrupamento da Imagem + Descrição */
+.item-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex: 1 1 50%;
+    border-right: 1px solid rgba(212, 163, 89, 0.15);
+    padding-right: 18px;
+}
+
+.item-info img {
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #d4a359;
+}
+
+.item-description {
+    font-size: 0.95rem;
+    color: #e6dad0;
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+/* Campo de Quantidade */
+.item-quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.item-quantity label {
+    font-size: 0.8rem;
+    color: #d4a359;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.item-quantity input {
+    width: 52px;
+    padding: 6px;
+    text-align: center;
+    border: 1px solid rgba(212, 163, 89, 0.4);
+    border-radius: 6px;
+    background-color: #1a0f09;
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+/* Preço do Item */
+.item-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    min-width: 100px;
+}
+
+.price-label {
+    font-size: 0.8rem;
+    color: #d4a359;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.price-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Endereço de Entrega */
+.delivery-address {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-left: 3px solid #d4a359;
+    padding: 16px;
+    border-radius: 6px;
+}
+
+.delivery-address h3 {
+    font-size: 0.95rem;
+    color: #d4a359;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.address-line {
+    font-size: 0.9rem;
+    color: #cbbcb0;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+/* Botão Retornar à Lista */
+.back-button-container {
+    margin-top: 5px;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 11px 22px;
+    background-color: transparent;
+    color: #d4a359;
+    border: 1px solid #d4a359;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: rgba(212, 163, 89, 0.15);
+    color: #ffffff;
+}
+
+/* Coluna Direita: Resumo do Pedido */
+.cart-right {
+    flex: 1 1 30%;
+}
+
+.order-summary-card {
+    background-color: rgba(43, 26, 17, 0.95);
+    border: 1px solid rgba(212, 163, 89, 0.4);
+    border-radius: 12px;
+    padding: 28px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+}
+
+.order-summary-card h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #f7ede2;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(212, 163, 89, 0.2);
+    width: 100%;
+    padding-bottom: 12px;
+}
+
+.summary-total {
+    margin-bottom: 15px;
+}
+
+.total-label {
+    font-size: 0.9rem;
+    color: #cbbcb0;
+    margin-bottom: 6px;
+    font-weight: 300;
+}
+
+.total-price {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.installment-info {
+    margin-bottom: 25px;
+    font-size: 0.85rem;
+    color: #a8988b;
+}
+
+.installment-highlight {
+    font-weight: 500;
+    color: #d4a359;
+    margin-top: 4px;
+}
+
+/* Botão Finalizar Compra com Texto Dinâmico no Hover */
+.btn-checkout {
+    position: relative;
+    width: 100%;
+    padding: 14px 10px;
+    background: linear-gradient(135deg, #8c4a1b 0%, #b86020 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-checkout:hover {
+    background: linear-gradient(135deg, #1b4d2e 0%, #277244 100%); /* Cor verde para remeter ao 0800 */
+    transform: translateY(-2px);
+}
+
+/* Muda o conteúdo do texto ao passar o mouse */
+.btn-checkout:hover::after {
+    content: "compra 0800 fre na conta da casa";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1b4d2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* Adaptabilidade Responsiva */
+@media (max-width: 768px) {
+    .cart-content {
+        flex-direction: column;
+    }
+    
+    .cart-left, .cart-right {
+        width: 100%;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .item-info {
+        border-right: none;
+        border-bottom: 1px solid rgba(212, 163, 89, 0.15);
+        padding-bottom: 12px;
+        width: 100%;
+    }
+
+    .item-price {
+        align-items: flex-start;
+    }
+}

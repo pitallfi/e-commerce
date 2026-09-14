@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beco Diagonal - Coffee Shop</title>
+    <!-- Vincula o arquivo CSS externo -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="light-theme">
+
+    <!-- Cabeçalho contendo a barra de navegação -->
+    <header>
+        <nav class="navbar">
+            <!-- Esquerda: Logo -->
+            <div class="logo">
+                <a href="#">
+                    <img src="./img/logo-menusuperior.jpg" alt="Logo Beco Diagonal Coffee Shop">
+                </a>
+            </div>
+
+            <!-- Centro: Barra de Pesquisa -->
+            <div class="search-box">
+                <input type="text" placeholder="O que você está procurando hoje?">
+                <button type="button">Buscar</button>
+            </div>
+
+            <!-- Direita: Carrinho e Botão de Alternar Tema -->
+            <div class="nav-right">
+                <!-- Botão de Troca de Tema -->
+                <button id="theme-toggle" class="btn-theme" type="button" aria-label="Alternar tema">
+                    <span class="theme-text">Quem somos nós ? </span>
+                </button>
+
+                <!-- Ícone do Carrinho -->
+                <div class="cart">
+                    <a href="carrinho.html" aria-label="Acessar carrinho de compras">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Ícone do Carrinho">
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal do Site -->
+    <main>
+        <!-- SEÇÃO 1: MODO CLARO - Vitrine de Produtos (Oculta no Modo Escuro) -->
+        <section id="products-section" class="products-container">
+            <!-- Card 1 -->
+            <div class="product-card">
+                <img src="./img/produto-01.jpg" alt="Gnomo Mágico da Floresta">
+                <p class="description">COGUMELO DE ZEBU</p>
+                <span class="price">R$ 89,90</span>
+                <button type="button" class="btn-cart">Colocar no carrinho</button>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="product-card">
+                <img src="./img/produto-02.jpg" alt="Guerreiro da Floresta">
+                <p class="description">MACONHA GOLIAS PORRADEIRA</p>
+                <span class="price">R$ 120,00</span>
+                <button type="button" class="btn-cart">Colocar no carrinho</button>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="product-card">
+                <img src="./img/produto-03.jpg" alt="Festival da Floresta">
+                <p class="description">POZINHO MAGICO</p>
+                <span class="price">R$ 150,00</span>
+                <button type="button" class="btn-cart">Colocar no carrinho</button>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: MODO ESCURO - Imagem Única + Sobre Nós + Formulário Central (Oculto no Modo Claro) -->
+        <section id="dark-section" class="dark-content-container hidden">
+            <div class="dark-form-card">
+                <!-- Imagem Exclusiva do Modo Escuro -->
+                <div class="dark-banner">
+                    <img src="./img/logo-noite.jpg" alt="Imagem Especial Modo Escuro - Beco Diagonal" />
+                </div>
+
+                <!-- Seção Sobre Nós com Informações da Loja -->
+                <div class="about-us">
+                    <h2>Sobre Nós</h2>
+                    <p>
+                        Bem-vindo ao <strong>Beco Diagonal Coffee Shop</strong>! Somos uma cafeteria temática inspirada no universo mágico e místico.
+                        Nosso objetivo é proporcionar uma experiência inesquecível com cafés especiais, poções aromatizadas e um ambiente acolhedor e misterioso.
+                    </p>
+                </div>
+
+                <!-- Formulário de Coleta de Dados do Cliente -->
+                <form class="client-form" onsubmit="return false;">
+                    <h3>Cadastre-se para Ofertas Exclusivas</h3>
+
+                    <div class="form-group">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu melhor e-mail">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone / WhatsApp:</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(00) 90000-0000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem ou Preferências:</label>
+                        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte-nos quais cafés e poções você mais gosta..."></textarea>
+                    </div>
+		    <a href="parabens-contato.html">
+                    <button type="button" class="btn-submit">Enviar Cadastro</button>
+		    </a>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Script Simples para Alternar o Tema e as Seções -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = themeToggleBtn.querySelector('.theme-icon');
+        const themeText = themeToggleBtn.querySelector('.theme-text');
+        const productsSection = document.getElementById('products-section');
+        const darkSection = document.getElementById('dark-section');
+        const body = document.body;
+
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = body.classList.toggle('dark-theme');
+            body.classList.toggle('light-theme', !isDark);
+
+            if (isDark) {
+                themeText.textContent = 'Voltar para o Produto';
+                productsSection.classList.add('hidden');
+                darkSection.classList.remove('hidden');
+            } else {
+                themeText.textContent = 'Quem somos nós ? ';
+                productsSection.classList.remove('hidden');
+                darkSection.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
