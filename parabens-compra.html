@@ -4,45 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parabéns pela Compra! - Beco Diagonal</title>
-    <!-- Vincula o CSS exclusivo para os cards de tela cheia -->
-    <link rel="stylesheet" href="./css/style-parabens.css">
+    
+    <!-- Bootstrap CSS e Fontes -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Puxamos apenas o seu CSS Principal para manter o tema -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
-<body class="light-theme">
+<body>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="./img/logo-menusuperior.jpg" alt="Logo Beco Diagonal Coffee Shop">
-                </a>
-            </div>
-            <div class="nav-right">
-                <div class="cart">
-                    <a href="index.html" aria-label="Voltar para a loja">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Ícone do Carrinho">
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <!-- Navbar simplificada (apenas Logo e ícone de voltar pra loja) -->
+    <nav class="navbar navbar-cor" data-bs-theme="dark">
+        <div class="container-fluid container d-flex justify-content-between">
+            <a class="navbar-brand text-pergaminho mb-0" href="index.html">Beco Diagonal</a>
+            <a href="index.html" class="nav-link text-pergaminho" aria-label="Voltar para a Loja">
+                <i class="bi bi-shop fs-4"></i>
+            </a>
+        </div>
+    </nav>
 
-    <!-- Container Central Flexbox -->
-    <main class="center-container">
-        <div class="single-card">
-            <div class="card-icon">🎉✨</div>
-            <h1 class="card-title">Parabéns! Compra Realizada</h1>
+    <!-- Container centralizado com Flexbox nativo do Bootstrap -->
+    <main class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+        
+        <!-- Reutilizamos a classe auth-card do style.css para o fundo de pergaminho -->
+        <div class="card auth-card p-4 p-md-5 text-center col-12 col-md-8 col-lg-6">
             
-            <p class="card-description">
-                Sua encomenda mágica já está sendo preparada pelos nossos artesãos do <strong>Beco Diagonal Coffee Shop</strong>! Em breve, suas poções e itens especiais estarão a caminho.
+            <div class="display-1 mb-3">🎉✨</div>
+            <h1 class="h2 font-antiga mb-3" style="color: #352315;">Parabéns! Compra Realizada</h1>
+            
+            <p class="mb-4" style="color: #4a3b32; line-height: 1.6;">
+                Sua encomenda mágica já está sendo preparada pelos nossos artesãos do <strong>Beco Diagonal</strong>! Em breve, suas poções e itens especiais estarão a caminho.
             </p>
 
-            <div class="order-info-box">
-                <p class="order-code">Código do Pedido: #BD-98421</p>
-                <p class="order-detail">Enviamos os detalhes do rastreio para o seu e-mail.</p>
+            <!-- Box do Pedido (feito inteiramente com classes Bootstrap) -->
+            <div class="p-3 mb-4 rounded" style="background-color: #fff8f0; border: 1px dashed #d4a359;">
+                <p class="mb-1 fw-bold" style="color: #6b4226;">Código do Pedido: #BD-98421</p>
+                <p class="mb-0" style="font-size: 0.9rem; color: #4a3b32;">Enviamos os detalhes do rastreio para o seu e-mail.</p>
             </div>
 
-            <a href="index.html" class="btn-action">Voltar para a Loja</a>
+            <a href="index.html" class="btn btn-auth w-100 py-2">Voltar para a Loja</a>
         </div>
+        
     </main>
 
 </body>

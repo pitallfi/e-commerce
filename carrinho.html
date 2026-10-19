@@ -4,110 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de Compras - Beco Diagonal</title>
-    <!-- Vincula o CSS exclusivo da página de carrinho -->
+    
+    <!-- Bootstrap CSS e Fontes -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Vincula o CSS principal e o do carrinho -->
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/style-carrinho.css">
 </head>
-<body>
+<!-- ADICIONADO: Classes flex e min-vh-100 para fazer a página ocupar a tela toda -->
+<body class="d-flex flex-column min-vh-100">
 
-    <main class="cart-container">
-        <!-- Título da Página -->
-        <h1 class="page-title">Meu Carrinho de Compras</h1>
+    <!-- XXXXXXXXXXXXXXXXXXXXX BARRA DE NAVEGAÇÃO XXXXXXXXXXXXXXXXXXXXXX -->
+    <nav class="navbar navbar-cor" data-bs-theme="dark">
+      <div class="container-fluid container">
+        <div class="d-flex align-items-center">
+          <button class="btn-toggle-livro me-2" type="button" data-bs-toggle="collapse" data-bs-target="#menuOpcoes" aria-controls="menuOpcoes" aria-expanded="false" aria-label="Abrir menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+              <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.933-.043-2.134-.133-3.056-.253C3.541 12.067 2.217 12.43 1.5 12.793V2.828zm7.5-.114c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.965c-.717-.363-2.042-.726-2.944-.928-1.016-.228-2.196-.307-3.556-.285V2.714zM3.05 1.1c-1.042.127-2.064.534-2.81 1.058A.5.5 0 0 0 0 2.584v10a.5.5 0 0 0 .616.488c.731-.161 1.627-.492 2.51-.724 1.133-.294 2.418-.465 3.574-.465s2.441.171 3.574.465c.883.232 1.779.563 2.51.724a.5.5 0 0 0 .616-.488v-10a.5.5 0 0 0-.24-.426c-.746-.524-1.768-.93-2.81-1.058-1.314-.162-2.583.132-3.414.93-.83-.798-2.1-.1-3.414-.1z"/>
+            </svg>
+          </button>
+          <a class="navbar-brand text-pergaminho mb-0" href="index.html">Beco Diagonal</a>
+        </div>
+        
+        <!-- Carrinho com bolinha mágica -->
+        <a href="carrinho.html" class="nav-link text-pergaminho cart-wrapper" aria-label="Carrinho">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg>
+          <span class="cart-badge d-none" id="cart-badge">0</span>
+        </a>
 
-        <!-- Layout Principal com Flexbox: Esquerda (Itens + Endereço) | Direita (Resumo) -->
-        <div class="cart-content">
+        <div class="collapse navbar-collapse" id="menuOpcoes">
+          <ul class="navbar-nav mt-3 font-antiga">
+            <li class="nav-item"><a class="nav-link text-pergaminho" href="login.html">Entrar</a></li>
+            <li class="nav-item"><a class="nav-link text-pergaminho" href="cadastrar.html">Cadastrar</a></li>
+            <li class="nav-item"><a class="nav-link text-pergaminho" href="produtos.html">Produtos</a></li>
+            <li><hr class="dropdown-divider-claro"></li>
+            <li class="nav-item"><a class="nav-link text-sair" href="#" id="btn-sair">Sair</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- XXXXXXXXXXXXXXXXXXXXX FIM NAVBAR XXXXXXXXXXXXXXXXXXXXXX -->
+
+    <!-- ADICIONADO: Classe flex-grow-1 para esta área principal empurrar o rodapé lá pra baixo -->
+    <main class="container mt-5 mb-5 flex-grow-1">
+        <h1 class="text-center mb-2" style="color: #352315; font-weight: 700;">Meu Carrinho de Compras</h1>
+        <hr>
+
+        <div class="row g-4 mt-4">
             
-            <!-- Coluna da Esquerda: Lista de Produtos e Endereço -->
-            <div class="cart-left">
+            <!-- Coluna da Esquerda -->
+            <div class="col-12 col-lg-8 d-flex flex-column gap-4">
                 
-                <!-- Lista de Produtos -->
-                <div class="products-list">
-                    
-                    <!-- Produto 1 -->
-                    <div class="cart-item">
-                        <div class="item-info">
-                            <img src="./img/produto-01.jpg" alt="Gnomo Mágico da Floresta">
-                            <p class="item-description">Gnomo Guardião da Floresta Mágica com Cogumelo Brilhante</p>
-                        </div>
-                        <div class="item-quantity">
-                            <label for="qtd-1">Quantidade</label>
-                            <input type="number" id="qtd-1" value="1" min="1">
-                        </div>
-                        <div class="item-price">
-                            <span class="price-label">Preço</span>
-                            <span class="price-value">R$ 89,90</span>
-                        </div>
+                <div id="lista-produtos" class="d-flex flex-column gap-3">
+                    <div class="text-center p-4 mt-3 rounded" style="border: 1px dashed #6b4226;">
+                        <p style="color: #352315; font-size: 1.1rem; font-weight: bold; margin: 0;">Invocando itens mágicos...</p>
                     </div>
-
-                    <!-- Produto 2 -->
-                    <div class="cart-item">
-                        <div class="item-info">
-                            <img src="./img/produto-02.jpg" alt="Guerreiro da Floresta">
-                            <p class="item-description">Ent Protetor da Natureza Encantada das Colinas</p>
-                        </div>
-                        <div class="item-quantity">
-                            <label for="qtd-2">Quantidade</label>
-                            <input type="number" id="qtd-2" value="1" min="1">
-                        </div>
-                        <div class="item-price">
-                            <span class="price-label">Preço</span>
-                            <span class="price-value">R$ 120,00</span>
-                        </div>
-                    </div>
-
-                    <!-- Produto 3 -->
-                    <div class="cart-item">
-                        <div class="item-info">
-                            <img src="./img/produto-03.jpg" alt="Festival da Floresta">
-                            <p class="item-description">Quadro Ilustrativo - Celebração Mágica dos Gnomos</p>
-                        </div>
-                        <div class="item-quantity">
-                            <label for="qtd-3">Quantidade</label>
-                            <input type="number" id="qtd-3" value="1" min="1">
-                        </div>
-                        <div class="item-price">
-                            <span class="price-label">Preço</span>
-                            <span class="price-value">R$ 150,00</span>
-                        </div>
-                    </div>
-
                 </div>
 
-                <!-- Seção de Endereço de Entrega -->
-                <div class="delivery-address">
-                    <h3>Entregar em:</h3>
-                    <p class="address-line">Mountain View 1600</p>
-                    <p class="address-line">Amphitheatre Parkway Mountain View, CA 94043 United States</p>
+                <div class="p-4 rounded shadow-sm" style="background-color: rgba(253, 246, 227, 0.6); border-left: 4px solid #6b4226;">
+                    <h3 class="h5 fw-bold mb-2" style="color: #6b4226;">Entregar em:</h3>
+                    <p class="mb-1" style="color: #352315; font-size: 0.95rem;">Beco Diagonal, nº 42</p>
+                    <p class="mb-0" style="color: #352315; font-size: 0.95rem;">Londres, Reino Unido Mágico</p>
                 </div>
 
-                <!-- Botão para Retornar à Loja Principal -->
-                <div class="back-button-container">
-                    <a href="index.html" class="btn-back">Retornar à Lista de Produtos</a>
-                </div>
-
-            </div>
-
-            <!-- Coluna da Direita: Resumo do Pedido -->
-            <div class="cart-right">
-                <div class="order-summary-card">
-                    <h2>Resumo do Pedido</h2>
-                    
-                    <div class="summary-total">
-                        <p class="total-label">Total (3 produtos):</p>
-                        <p class="total-price">R$ 359,90</p>
-                    </div>
-
-                    <div class="installment-info">
-                        <p>Em até 10x s/ juros</p>
-                        <p class="installment-highlight">10x de R$ 35,99</p>
-                    </div>
-		    <a href="parabens-compra.html">		
-                    <button type="button" class="btn-checkout">Finalizar compra</button>
-		    </a>
+                <div class="text-center mt-2">
+                    <a href="produtos.html" class="btn fw-bold px-4 py-2" style="color: #6b4226; border: 2px solid #6b4226; border-radius: 8px; transition: 0.3s;" onmouseover="this.style.backgroundColor='#6b4226'; this.style.color='#fdf6e3';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6b4226';">Retornar à Lista de Produtos</a>
                 </div>
             </div>
 
+            <!-- Coluna da Direita -->
+            <div class="col-12 col-lg-4">
+                <div class="card p-4 shadow text-center" style="background-color: rgba(253, 246, 227, 0.9); border: 1px solid #6b4226; border-radius: 12px;">
+                    <h2 class="h5 fw-bold mb-4 pb-3 border-bottom" style="color: #352315; border-color: rgba(107, 66, 38, 0.3) !important;">Resumo do Pedido</h2>
+                    
+                    <div class="mb-4">
+                        <p class="fw-bold mb-1" id="total-itens" style="color: #352315;">Total (0 produtos):</p>
+                        <p class="fs-2 fw-bold mb-0" id="total-preco" style="color: #6b4226;">R$ 0,00</p>
+                    </div>
+                    
+                    <div class="mb-4" style="color: #352315; font-size: 0.9rem;">
+                        <p class="mb-1">Em até 10x s/ juros</p>
+                        <p class="fw-bold mb-0" id="total-parcelas" style="color: #6b4226;">10x de R$ 0,00</p>
+                    </div>
+                    
+                    <a href="parabens-compra.html" class="w-100 text-decoration-none">        
+                        <button type="button" id="btn-finalizar" class="btn w-100 fw-bold py-3" style="background: linear-gradient(135deg, #8c4a1b 0%, #b86020 100%); color: #ffffff; border: none; border-radius: 8px; font-family: 'Cinzel', serif;">Finalizar compra</button>
+                    </a>
+                </div>
+            </div>
+            
         </div>
     </main>
 
+    <!-- XXXXXXXXXXXXXXXXXXXXX RODAPÉ XXXXXXXXXXXXXXXXXXXXXX -->
+    <!-- MT-AUTO: O margin-top: auto joga o rodapé lá para baixo caso precise -->
+    <footer class="cor-personalizada text-center text-white mt-auto">
+      <div class="container p-4 pb-0">
+        <section class="mb-4">
+          <a class="btn btn-outline-light btn-floating m-1 rounded-circle" href="#!" role="button" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a class="btn btn-outline-light btn-floating m-1 rounded-circle" href="#!" role="button" aria-label="WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+        </section>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2026 Desenvolvido por:
+        <a class="text-white text-decoration-none" href="#">Matheus Carmo Ferreira Melo</a>
+      </div>
+    </footer>
+    <!-- XXXXXXXXXXXXXXXXXXXXX FIM RODAPÉ XXXXXXXXXXXXXXXXXXXXXX -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <!-- Lógica de Sair -->
+    <script>
+      const btnSair = document.getElementById('btn-sair');
+      if (btnSair) {
+          btnSair.addEventListener('click', function(e) {
+              e.preventDefault();
+              localStorage.removeItem('usuarioLogado');
+              alert('Feito o feitiço! Você saiu do Beco Diagonal.');
+              window.location.href = 'login.html';
+          });
+      }
+    </script>
+
+    <!-- O SCRIPT DO CARRINHO ESTÁ ATIVO AGORA! -->
+    <script src="./js/script.js"></script>
 </body>
 </html>

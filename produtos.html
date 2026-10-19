@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Artefatos - Beco Diagonal</title>
+    
+    <!-- Bootstrap CSS e Fontes -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Principal e da Loja -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style-produto.css">
+</head>
+<body>
+
+    <!-- XXXXXXXXXXXXXXXXXXXXX BARRA DE NAVEGAÇÃO XXXXXXXXXXXXXXXXXXXXXX -->
+    <nav class="navbar navbar-cor" data-bs-theme="dark">
+      <div class="container-fluid container">
+        <div class="d-flex align-items-center">
+          <button class="btn-toggle-livro me-2" type="button" data-bs-toggle="collapse" data-bs-target="#menuOpcoes" aria-controls="menuOpcoes" aria-expanded="false" aria-label="Abrir menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+              <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.933-.043-2.134-.133-3.056-.253C3.541 12.067 2.217 12.43 1.5 12.793V2.828zm7.5-.114c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.965c-.717-.363-2.042-.726-2.944-.928-1.016-.228-2.196-.307-3.556-.285V2.714zM3.05 1.1c-1.042.127-2.064.534-2.81 1.058A.5.5 0 0 0 0 2.584v10a.5.5 0 0 0 .616.488c.731-.161 1.627-.492 2.51-.724 1.133-.294 2.418-.465 3.574-.465s2.441.171 3.574.465c.883.232 1.779.563 2.51.724a.5.5 0 0 0 .616-.488v-10a.5.5 0 0 0-.24-.426c-.746-.524-1.768-.93-2.81-1.058-1.314-.162-2.583.132-3.414.93-.83-.798-2.1-.1-3.414-.1z"/>
+            </svg>
+          </button>
+          <a class="navbar-brand text-pergaminho mb-0" href="index.html">Beco Diagonal</a>
+        </div>
+        
+        <!-- Carrinho com a bolinha de notificação -->
+        <a href="carrinho.html" class="nav-link text-pergaminho cart-wrapper" aria-label="Carrinho">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg>
+          <!-- Bolinha vermelha -->
+          <span class="cart-badge d-none" id="cart-badge">0</span>
+        </a>
+
+        <div class="collapse navbar-collapse" id="menuOpcoes">
+          <ul class="navbar-nav mt-3 font-antiga">
+            <li class="nav-item"><a class="nav-link text-pergaminho" href="login.html">Entrar</a></li>
+            <li class="nav-item"><a class="nav-link text-pergaminho" href="cadastrar.html">Cadastrar</a></li>
+            <li class="nav-item"><a class="nav-link text-pergaminho" href="index.html">Início</a></li>
+            <li><hr class="dropdown-divider-claro"></li>
+            <li class="nav-item"><a class="nav-link text-sair" href="#" id="btn-sair">Sair</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- XXXXXXXXXXXXXXXXXXXXX FIM NAVBAR XXXXXXXXXXXXXXXXXXXXXX -->
+
+    <!--xxxxxxxxxxxxxxxxxxxxxx CORPO  XXXXXXXXXXXXXXXXXXXXXXXXXX -->
+    <main class="container mt-5 mb-5">
+        <h1 class="text-center h2-titulo">Catálogo de Artefatos</h1>
+        <hr>
+
+        <!-- Container com a classe mágica para o efeito de desfoque -->
+        <div class="produtos-grid mt-5">
+            
+            <!-- Produto 1 -->
+            <div class="card-magico">
+                <div class="imagem-produto">
+                    <img src="./img/varinha1.jpg" alt="Varinha de Sabugueiro">
+                </div>
+                <h3 class="nome-produto">Varinha Magma</h3>
+                <ul class="atributos-lista">
+                    <li><strong>Capacidade Mágica:</strong> Magma</li>
+                    <li><strong>Peso Mágico:</strong> 120 (Ouro Encantado) </li>
+                    <li><strong>Força Mágica:</strong> Nível 10 (Núcleo de Magma Encantado)</li>
+                </ul>
+                <div class="preco-area">
+                    <span class="preco-valor">R$ 4.500,00</span>
+                    <button class="btn-comprar">Adicionar <i class="bi bi-cart-plus"></i></button>
+                </div>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="card-magico">
+                <div class="imagem-produto">
+                    <img src="./img/varinha2.jpg" alt="Vira-Tempo">
+                </div>
+                <h3 class="nome-produto">Varinha Sabugueiro</h3>
+                <ul class="atributos-lista">
+                    <li><strong>Capacidade Mágica:</strong> Controle Temporal</li>
+                    <li><strong>Peso Mágico:</strong> 85g (Ouro Encantado)</li>
+                    <li><strong>Força Mágica:</strong> Nível 8 (Areia das Horas)</li>
+                </ul>
+                <div class="preco-area">
+                    <span class="preco-valor">R$ 1.250,00</span>
+                    <button class="btn-comprar">Adicionar <i class="bi bi-cart-plus"></i></button>
+                </div>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="card-magico">
+                <div class="imagem-produto">
+                    <img src="./img/varinha3.jpg" alt="Capa da Invisibilidade">
+                </div>
+                <h3 class="nome-produto">Coração Tirano</h3>
+                <ul class="atributos-lista">
+                    <li><strong>Capacidade Mágica:</strong>Incendiar</li>
+                    <li><strong>Peso Mágico:</strong> 300g (Ouro Encantado)</li>
+                    <li><strong>Força Mágica:</strong> Nível 9 (Imune a feitiços de revelação)</li>
+                </ul>
+                <div class="preco-area">
+                    <span class="preco-valor">R$ 3.800,00</span>
+                    <button class="btn-comprar">Adicionar <i class="bi bi-cart-plus"></i></button>
+                </div>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="card-magico">
+                <div class="imagem-produto">
+                    <img src="./img/chapeu.jpg" alt="Pedra Filosofal">
+                </div>
+                <h3 class="nome-produto">Chapel Maluco</h3>
+                <ul class="atributos-lista">
+                    <li><strong>Capacidade Mágica:</strong>Mente de BoB</li>
+                    <li><strong>Peso Mágico:</strong> 420g (Mineral Carmesim)</li>
+                    <li><strong>Força Mágica:</strong> Nível 10+ (Energia Vital Primordial)</li>
+                </ul>
+                <div class="preco-area">
+                    <span class="preco-valor">R$ 9.999,00</span>
+                    <button class="btn-comprar">Adicionar <i class="bi bi-cart-plus"></i></button>
+                </div>
+            </div>
+
+            <!-- Produto 5 -->
+            <div class="card-magico">
+                <div class="imagem-produto">
+                    <img src="./img/grimorio.jpg" alt="Bússola de Ouro">
+                </div>
+                <h3 class="nome-produto">Grimorio feitiços de combate</h3>
+                <ul class="atributos-lista">
+                    <li><strong>Capacidade Mágica:</strong> indeterminado</li>
+                    <li><strong>Peso Mágico:</strong> livro de humano</li>
+                    <li><strong>conhecimento:</strong>habilidades para combate </li>
+                </ul>
+                <div class="preco-area">
+                    <span class="preco-valor">R$ 890,00</span>
+                    <button class="btn-comprar">Adicionar <i class="bi bi-cart-plus"></i></button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- XXXXXXXXXXXXXXXXXXXXX RODAPÉ XXXXXXXXXXXXXXXXXXXXXX -->
+    <!-- Adicionada a classe text-white para alinhar com as outras páginas -->
+    <footer class="cor-personalizada text-center text-white mt-5">
+      <div class="container p-4 pb-0">
+        <section class="mb-4">
+          <a class="btn btn-outline-light btn-floating m-1 rounded-circle" href="#!" role="button" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a class="btn btn-outline-light btn-floating m-1 rounded-circle" href="#!" role="button" aria-label="WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+        </section>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2026 Desenvolvido por:
+        <a class="text-white text-decoration-none" href="#">Matheus Carmo Ferreira Melo</a>
+      </div>
+    </footer>
+    <!-- XXXXXXXXXXXXXXXXXXXXX FIM RODAPÉ XXXXXXXXXXXXXXXXXXXXXX -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <!-- Script de Sair (Logout) -->
+    <script>
+      const btnSair = document.getElementById('btn-sair');
+      if (btnSair) {
+          btnSair.addEventListener('click', function(e) {
+              e.preventDefault();
+              localStorage.removeItem('usuarioLogado');
+              alert('Feito o feitiço! Você saiu do Beco Diagonal.');
+              window.location.href = 'login.html';
+          });
+      }
+    </script>
+
+    <!-- O SEU SCRIPT MÁGICO DO CARRINHO FICA AQUI POR ÚLTIMO -->
+    <script src="./js/script.js"></script>
+</body>
+</html>

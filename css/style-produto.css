@@ -1,0 +1,160 @@
+/* Grid para posicionar os 5 produtos lado a lado de forma responsiva */
+.produtos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* O Segredo da Magia: Quando passar o mouse na grid, desfoca TODOS os cards que NÃO estão com o mouse em cima */
+/* CORREÇÃO: O uso do :has() garante que o efeito só ative se o mouse estiver EXATAMENTE em cima de um card, ignorando os espaços vazios */
+.produtos-grid:has(.card-magico:hover) .card-magico:not(:hover) {
+    filter: blur(4px) grayscale(0.4);
+    opacity: 0.6;
+    transform: scale(0.95);
+}
+
+/* Estilo individual de cada Card */
+.card-magico {
+    width: 280px; /* Largura padrão do card */
+    background-color: rgba(253, 246, 227, 0.85); /* Fundo pergaminho */
+    border: 2px solid #6b4226; /* Borda marrom da navbar */
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(53, 35, 21, 0.2);
+    
+    /* Transição suave para o desfoque, crescimento e sombra */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+/* Efeito ao focar no card específico */
+.card-magico:hover {
+    transform: scale(1.08) translateY(-10px); /* Aumenta e levanta o card */
+    box-shadow: 0 20px 30px rgba(53, 35, 21, 0.4); /* Sombra mais intensa */
+    border-color: #d5b98f; /* Borda brilha sutilmente */
+    z-index: 10; /* Garante que ele fique por cima dos outros */
+}
+
+/* Imagem do Produto */
+.imagem-produto {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid rgba(107, 66, 38, 0.3);
+}
+
+.imagem-produto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Pequeno zoom na imagem ao passar o mouse no card */
+.card-magico:hover .imagem-produto img {
+    transform: scale(1.1);
+}
+
+/* Título do Produto */
+.nome-produto {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #352315;
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed rgba(107, 66, 38, 0.5);
+    padding-bottom: 10px;
+}
+
+/* Atributos (Capacidade, Peso, Força) */
+.atributos-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    font-size: 0.85rem;
+    color: #6b4226;
+    font-family: sans-serif; /* Muda a fonte para facilitar a leitura dos dados técnicos */
+}
+
+.atributos-lista li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.atributos-lista strong {
+    color: #352315;
+}
+
+/* Área de Preço e Botão */
+.preco-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto; /* Empurra o preço sempre para o fundo do card */
+}
+
+.preco-valor {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #352315;
+    font-family: 'Cinzel', serif;
+}
+
+/* Botão de Adicionar ao Carrinho */
+.btn-comprar {
+    width: 100%;
+    padding: 10px;
+    background-color: #6b4226;
+    color: #fdf6e3;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: 'Cinzel', serif;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Alterado para 'all' para suavizar a troca de texto do JS */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-comprar:hover {
+    background-color: #352315;
+    color: #d5b98f;
+}
+
+
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX RODAPÉ (GARANTIA DE COR) XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
+/* Força o rodapé desta página a ter exatamente a mesma cor escura (couro) da Navbar, 
+   caso o style.css principal não consiga sobrescrever. */
+.cor-personalizada {
+    background-color: #2e1a10 !important; /* Marrom bem escuro, combinando com a Navbar original */
+    color: #fdf6e3 !important; /* Cor de pergaminho para o texto */
+    border-top: 2px solid #6b4226; /* Uma linha sutil separando o rodapé da página */
+}
+
+.cor-personalizada a.text-white {
+    color: #d5b98f !important; /* Links do rodapé em tom de ouro/pergaminho escuro */
+    transition: color 0.3s ease;
+}
+
+.cor-personalizada a.text-white:hover {
+    color: #fdf6e3 !important;
+}
+
+.cor-personalizada .btn-outline-light {
+    border-color: rgba(253, 246, 227, 0.4);
+    color: #fdf6e3;
+}
+
+.cor-personalizada .btn-outline-light:hover {
+    background-color: #fdf6e3;
+    color: #2e1a10;
+}
